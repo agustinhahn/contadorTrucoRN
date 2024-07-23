@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
 const BtnMas = ({setContador, contador}) => {
@@ -11,9 +11,9 @@ const BtnMas = ({setContador, contador}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={()=>sumarSi()}>
+      <Pressable style={styles.button} onPress={()=>sumarSi()}>
         <Text style={styles.text}>+</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };
