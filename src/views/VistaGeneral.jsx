@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet} from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useContext } from "react";
@@ -8,7 +8,7 @@ import {ContextCont} from "../context/PuntosContext";
 const VistaGeneral = () => {
     const { contador1, setContador1 } = useContext(ContextCont)
     const { contador2, setContador2 } = useContext(ContextCont)
-  return (
+    return (
     <View style={styles.container}>
         <Tabla
             defaultName="Nosotros"
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         gap: 10,
-        backgroundColor: "#fff",
         justifyContent: "center",
     },
 });

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, TextInput } from "react-native";
+import { View, Text, StyleSheet, Pressable, TextInput, ImageBackground } from "react-native";
 import React, { useState } from "react";
 
 const NombreEditable = ({ defaultName }) => {
@@ -11,6 +11,7 @@ const NombreEditable = ({ defaultName }) => {
     };
 
     return (
+        <ImageBackground source={require("../../assets/marcosnombre.png")} style={styles.background}>
         <View style={styles.container}>
         <Text style={styles.nombre}>{nombre ? nombre : defaultName}</Text>
         {edit ? (
@@ -28,20 +29,27 @@ const NombreEditable = ({ defaultName }) => {
             </Pressable>
         )}
         </View>
+        </ImageBackground>
     );
     };
 
 export default NombreEditable;
 
 const styles = StyleSheet.create({
+  background: {
+    width: 200,  // Ajusta el tamaño del componente según sea necesario
+    height: 100, // Ajusta el tamaño del componente según sea necesario
+    justifyContent: 'center',
+    alignItems: 'center',
+},
   container: {
-    flexDirection: "row",
-    backgroundColor: "blue",
-    alignItems: "center",
-    justifyContent: "center",
-    width: 180,
-    marginTop: 20,
-    height: 70
+    // flexDirection: "row",
+    // backgroundColor: "blue",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // width: 180,
+    // marginTop: 20,
+    // height: 70
   },
   edit: {
     backgroundColor: "red",

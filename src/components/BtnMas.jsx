@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
 const BtnMas = ({setContador, contador}) => {
@@ -11,9 +11,9 @@ const BtnMas = ({setContador, contador}) => {
 
   return (
     <View style={styles.container}>
-      <Pressable style={styles.button} onPress={()=>sumarSi()}>
+      <TouchableOpacity style={styles.button} onPress={()=>sumarSi()}>
         <Text style={styles.text}>+</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -33,14 +33,14 @@ const styles = StyleSheet.create({
     elevation: 10, // Para Android
     shadowColor: "black",
     shadowOffset: { width: 0, height: 5 }, // Para iOS
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.6,
     shadowRadius: 8,
-    backgroundColor: "red", // Necesario si usas una imagen de fondo
+    backgroundColor: "#d4b48c", // Necesario si usas una imagen de fondo
     // Puedes usar una imagen de textura de madera como fondo
     // source={require('./path/to/wood-texture.png')}
   },
   text: {
-    color: "white",
+    color: "black",
     textAlign: "center",
     fontSize: 25,
     padding: 5,
