@@ -1,7 +1,9 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import ContenedorPorotos from "./ContenedorPorotos";
 
+
+const {width, height} = Dimensions.get("window")
 const CuerpoPuntos = ({ contador }) => {
 
   const primerDivision = 0
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
       flex: 1,
         flexDirection: 'column',
         flexWrap: 'wrap',
-        justifyContent:"space-around"
+        gap:height*0.04,
+        marginTop: height*0.17,
       },
 });

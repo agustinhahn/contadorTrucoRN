@@ -26,8 +26,8 @@ export default BtnReset;
 
 const styles = StyleSheet.create({
         button: {
-            width: 150, // Ajusta el tamaño del botón según tus necesidades
-            height: 50,
+            width: 100, // Ajusta el tamaño del botón según tus necesidades
+            height: 60,
             borderRadius: 10, // Ajusta el radio del borde según tus necesidades
             overflow: 'hidden', // Asegúrate de que la imagen de fondo no se salga del botón
         },
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
         content: {
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop:8
+            marginTop:6
         },
         text: {
             color: 'black', // Ajusta el color del texto según sea necesario
-            fontSize: 18,
+            fontSize: 15,
             fontWeight: 'bold',
         },
 });

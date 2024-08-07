@@ -1,12 +1,46 @@
-import { View, Text, StyleSheet, TouchableOpacity  } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions  } from "react-native";
 import React from "react";
+import { Audio } from "expo-av";
+import { useEffect, useState } from "react";
+
+const {width , height} = Dimensions.get("window")
 
 const BtnMenos = ({setContador, contador}) => {
+
+  const [sound, setSound] = useState();
+
+  // Cargar sonido predeterminado
+  async function loadSound() {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/restar.mp3')
+    );
+    await sound.setVolumeAsync(1.0);
+    setSound(sound);
+  }
+
+  useEffect(() => {
+    loadSound();
+    return () => {
+      // Liberar recursos de sonido cuando el componente se desmonte
+      sound && sound.unloadAsync();
+    };
+  }, []);
+
+    // Función para reproducir sonido predeterminado
+async function playDefaultSound() {
+  try {
+    await sound.replayAsync();
+  } catch (err) {
+    console.error("Failed to play sound", err);
+  }
+}
+
 
   const restarSi = () =>{
     if(contador >0){
       setContador(contador => contador - 1)
     }
+    playDefaultSound()
   }
 
   return (
@@ -25,11 +59,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    width: 50, // Ajusta el tamaño del botón según tus necesidades
-    height: 50,
+    width: width*0.1, // Ajusta el tamaño del botón según tus necesidades
+    height: width*0.1,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 20,
+    borderRadius: 10,
     elevation: 10, // Para Android
     shadowColor: "black",
     shadowOffset: { width: 0, height: 5 }, // Para iOS
@@ -42,8 +76,8 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     textAlign: "center",
-    fontSize: 25,
-    padding: 5,
-    paddingBottom: 10
+    fontSize: width*0.07,
+    padding: width*0.01,
+    paddingBottom: width*0.1
   },
 });

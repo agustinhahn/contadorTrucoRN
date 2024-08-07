@@ -1,9 +1,12 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import Porotos from "./Porotos";
 
-const ContenedorPorotos = ({ contador, division }) => {
 
+const {width, height} = Dimensions.get("window")
+
+const ContenedorPorotos = ({ contador, division }) => {
+  
 
   return (
     <View style={styles.square}>
@@ -23,10 +26,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
-    width: 130,
-    height: 130,
-    padding: 10,
-    gap:5,
-    alignContent:"center"
+    width: width*0.3,
+    height: height*0.15,
+    padding: width*0.01,
+    gap: width*0.02,
+    alignContent:"center",
   },
 });

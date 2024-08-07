@@ -29,6 +29,7 @@ export default Estado;
 const styles = StyleSheet.create({
     container:{
         backgroundColor: 'green',
+        borderWidth:2,
     },
     texto:{
 

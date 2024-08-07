@@ -8,7 +8,7 @@ export default function App() {
   return (
     <>
       <PuntosContext>
-        <ImageBackground style={styles.background} source={require("./assets/fondo.png")}>
+        <ImageBackground style={styles.background} source={require("./assets/fondodefinitivo.png")}>
         <VistaGeneral />
         </ImageBackground>
       </PuntosContext>

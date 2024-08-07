@@ -1,9 +1,12 @@
-import { View, StyleSheet} from "react-native";
+import { View, StyleSheet, Dimensions} from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useContext } from "react";
 import Tabla from "../components/Tabla";
 import {ContextCont} from "../context/PuntosContext";
+
+
+const {width, height} = Dimensions.get("window")
 
 const VistaGeneral = () => {
     const { contador1, setContador1 } = useContext(ContextCont)
@@ -11,16 +14,14 @@ const VistaGeneral = () => {
     return (
     <View style={styles.container}>
         <Tabla
-            defaultName="Nosotros"
             contador={contador1}
             setContador={setContador1}
         />
         <Tabla
-            defaultName="Ellos"
             contador={contador2}
             setContador={setContador2}
         />
-        <StatusBar style="auto" />
+        <StatusBar hidden={true} />
         </View>
     );
 };
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "row",
-        gap: 10,
         justifyContent: "center",
+        gap: width*0.03
     },
 });

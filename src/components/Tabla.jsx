@@ -1,27 +1,42 @@
-import { View,  StyleSheet } from "react-native";
-import NombreEditable from "./NombreEditable";
+import { View, StyleSheet } from "react-native";
 import Contador from "./Contador";
 import CuerpoPuntos from "./CuerpoPuntos";
-import Estado from "./Estado";
-const Tabla = ({defaultName, contador, setContador}) => {
+import Confetti from 'react-native-confetti';
+import React, { useEffect ,useRef } from "react";
+
+const Tabla = ({ contador, setContador }) => {
+
+  
+  const confettiRef = useRef(null);
+
+  const triggerConfetti = () => {
+    confettiRef.current.startConfetti();
+  };
+
+  useEffect(()=>{
+    if(contador === 30){
+      triggerConfetti();
+    }
+  },[contador])
+
+
 
   return (
     <View style={styles.container}>
-      <NombreEditable defaultName={defaultName}/>
-      <Estado contador={contador} />
+      <Confetti ref={confettiRef} />
       <CuerpoPuntos contador={contador} />
       <Contador contador={contador} setContador={setContador} />
     </View>
   );
 };
-export default Tabla;
 
+export default Tabla;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-evenly",
   },
 });
