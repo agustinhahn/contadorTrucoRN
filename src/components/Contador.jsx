@@ -42,12 +42,29 @@ const Contador = ({ contador, setContador }) => {
     }
   }
 
+  const stopSound = async () => {
+    try {
+      if (sound) {
+        await sound.stopAsync();
+        setHasPlayedSound(false)
+      }
+    } catch (err) {
+      console.error("Failed to stop sound", err);
+    }
+  };
+
   useEffect(() => {
     // Verificar si el contador es 30 y si el sonido ya ha sido reproducido
     if (contador === 30 && !hasPlayedSound) {
       playDefaultSound();
     }
   }, [contador, hasPlayedSound]);
+
+  useEffect(()=>{
+    if(contador === 0 && hasPlayedSound){
+      stopSound()
+    }
+  },[contador])
 
 
   return (
@@ -58,7 +75,7 @@ const Contador = ({ contador, setContador }) => {
         <BtnMas setContador={setContador} contador={contador} />
       </View>
       <View>
-        <BtnReset setContador={setContador} />
+        <BtnReset setContador={setContador}/>
       </View>
     </View>
   );

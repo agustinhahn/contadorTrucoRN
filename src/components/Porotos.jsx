@@ -7,7 +7,7 @@ const Porotos = ({ visible }) => {
     return (
         <View style={[styles.poroto, { display: visible ? "flex" : "none" }]}>
             <Image
-            source={require("../../assets/poroto.png")} // Ruta de la imagen PNG
+            source={require("../../assets/poroto.webp")} // Ruta de la imagen PNG
             style={styles.image}
             />
         </View>

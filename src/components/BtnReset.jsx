@@ -10,7 +10,7 @@ const BtnReset = ({setContador}) => {
     return (
         <TouchableOpacity style={styles.button} onPress={manejador}>
         <ImageBackground
-            source={require("../../assets/fondoreset.png")}
+            source={require("../../assets/fondoreset.webp")}
             style={styles.imageBackground}
             imageStyle={styles.imageStyle}
         >

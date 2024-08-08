@@ -8,6 +8,9 @@ node_modules/
 dist/
 web-build/
 
+/src/components/ignoredComponents/
+
+
 # Native
 *.orig.*
 *.jks
